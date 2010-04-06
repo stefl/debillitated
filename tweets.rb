@@ -5,6 +5,8 @@ require 'sinatra'
 require 'haml'
 
 get '/' do
+  content_type "text/css", :charset => "utf-8"
+  response.headers['Cache-Control'] = "public, max-age=#{60*60}"
   @tweets = []
   @cols = []
   y = 0
@@ -27,7 +29,7 @@ get '/' do
       @tweets << tweet
     end
     y = y+1
-    break if y > 20
+    #break if y > 20
   end
   
   @usernames = {}

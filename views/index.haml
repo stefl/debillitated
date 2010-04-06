@@ -1,0 +1,50 @@
+%h2
+  %span 1
+  Digital Economy Bill debate
+
+%h2
+  %span 20,000
+  Letters written
+  
+%h2
+  %span 646
+  Members of Parliament
+
+%h2
+  %span 36
+  Bothered to turn up (thanks!)
+
+%h2
+  %span 16
+  Stuck around until the end
+    
+%h2
+  %span= @usernames.size
+  Twitterers
+  
+%h2
+  %span= @tweets.size
+  Tweets
+  
+%h2
+  %span 1 way of doing things that desperately needs to change
+
+%hr
+
+%h3
+  Here's what we thought
+  
+%ul#tweets
+  - @tweets.each do |tweet|
+    %li.tweet
+      %span.profile_image
+        %img{:src=>"http://twitteravatar.appspot.com/users/avatar/#{tweet[:from_user]}", :width=>48, :height=>48}
+      %span.from_user
+        %a{:href=>"http://twitter.com/#{tweet[:from_user]}"}
+          = tweet[:from_user]
+      %br
+      %span.text
+        = tweet[:text]
+        
+
+  

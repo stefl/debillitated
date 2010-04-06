@@ -1,0 +1,289 @@
+@import reset.sass
+@import tools.sass
+
+!unit= 110px
+!gutter= 10px
+
+!line= 18px
+
+body
+  padding= 0 0 !line 0
+  
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif
+  font-size: 14px
+  line-height= !line
+  
+  color: black
+  background: #ded
+  background-position: 0 0
+  background-attachment: fixed
+  
+  a
+    font-weight: bold
+    
+    color: black
+    
+    &:hover
+      text-decoration: none
+  
+  form
+    div.submit
+      padding= !line/2 0
+      text-align: center
+      
+    button
+      overflow: visible
+      +box-sizing(content-box)
+      display: block
+      width= !unit*3-!gutter*2
+
+      margin= 0 auto
+      padding= 9px !gutter
+
+      font-weight: bold
+      font-size: 1em
+      text-shadow= -1px -1px 1px #00baff-#222
+      text-decoration: none
+      text-align: center
+
+      cursor: pointer
+      color: white
+      +gradient(#00baff, #00baff-#111)
+      border: 1px solid white
+      +border-radius(5px, 5px, 5px, 5px)
+
+      &:hover
+        +gradient(#00baff, #00baff)
+    
+  
+  
+  div#page
+    width= !unit*9+!gutter*8
+    margin: 0 auto
+    
+    nav#masthead
+      z-index: 2
+      position: relative
+      font-size: 14px
+      font-weight: bold
+      
+      div.global
+        margin= 9px 0 9px !unit*7+!gutter*7
+        
+        text-shadow: -1px -1px 1px #222
+        
+        p
+          font-size: 12px
+          text-align: right
+          
+          color: #444
+          
+          a
+            font-weight: normal
+            
+            color: #666
+            
+          &.logo
+            color: #666
+            
+         
+      form
+        float: left
+        width= !unit*2+!gutter
+        
+        margin= 0 0 0 !gutter
+        
+        select
+          width= !unit*2
+          
+          font-size: 14px
+          font-weight: bold
+          
+        input
+          width= !unit*2
+          
+        div.selector
+          margin-bottom: 0
+          
+          font-size: 16px
+          
+          color: black
+          
+      ul
+        float: left
+        width= !unit*5+!gutter*4
+        
+        li
+          float: left
+          width= !unit
+          
+          margin= 0 !gutter 0 0
+          
+          &:last-child
+            margin-right: 0
+          
+          a
+            position: relative
+            display: block
+            
+            padding: 5px 0
+            
+            text-align: center
+            text-decoration: none
+            text-shadow: 1px 1px 1px #eee
+            
+            color: #333
+            background: #ccc
+            border: 1px solid #ccc
+            border-width: 1px 1px 0 1px
+            +border-radius(10px, 10px, 0, 0)
+            
+            &:hover
+              text-shadow: none
+
+              color: black
+              background: white
+            
+            small
+              position: absolute
+              right: -4px
+              top: -4px
+              width: 18px
+              height: 18px
+              
+              font-size: 11px
+              font-weight: normal
+              
+              +gradient(#f00, #f00-#666)
+              border: 1px solid white
+              +border-radius(10px, 10px, 10px, 10px)
+              +box-shadow(black, 0, 0, 2px)
+              
+          strong a
+            text-shadow: none
+            
+            color: black
+            background: white
+          
+    div#content
+      +expand
+      z-index: 1
+      position: relative
+      clear: both
+      min-height: 500px
+      padding: 1.5em      
+      
+      background: #eee
+      border-top: 3px solid white
+      border-bottom: 3px solid white
+      
+      nav
+        padding= 0 0 0 !unit*2+!gutter*2
+        
+        color: white
+        background: #222
+        border-bottom: 3px solid black
+        
+        ul
+          +expand
+          li
+            float: left
+            width= !unit
+            
+            margin= 0 !gutter 0 0
+            
+            a
+              display: block
+              
+              padding: 5px 0
+              
+              text-align: center
+              text-decoration: none
+              text-shadow: -1px -1px 1px black
+              
+              color: white
+              
+              &:hover
+                text-decoration: underline
+      
+      section
+        h1
+          margin= !line 0 !line !unit*2+!gutter*2
+          
+          font-size: 18px
+        
+        div.order
+          float: right
+          width: auto
+          
+          margin= -36px !unit*2+!gutter*2 0 0
+          
+          color: #555
+          
+          label
+            display: none
+          
+          div.selector
+            margin-bottom: 0
+        
+        div#main
+          float: right
+          width= !unit*7+!gutter*6
+          
+          form
+            div
+              margin= 0 0 !line 0
+            label
+              display: block
+            input
+              width= !unit*3
+              font-size: 24px
+            
+            div.submit
+              clear: both
+              
+        
+     
+      
+div#message
+  z-index: 1000
+  position: absolute
+  right: 10px
+  top: 10px
+  
+  padding: 9px 20px
+  
+  border: 1px solid white
+  +box-shadow(rgba(0, 0, 0, 0.5), 0, 0, 10px)
+  
+body
+  padding: 1.5em
+h2
+  font-size: 200%
+  margin-bottom: 0.75em
+  span
+    font-weight: bolder
+    border-bottom: 4px solid red
+h3
+  font-size: 150%
+  margin-bottom: 0.5em
+ul
+  li.tweet
+    clear: both
+    margin-bottom: 0.5em
+    display: block
+    list-style-type: none
+    span.profile_image
+      float: left
+      padding-bottom: 0.5em
+    img
+      margin-right: 1.5em
+      display: block
+      
+      
+      
+hr
+  border: 4px solid #ddd
+  margin-top: 0.5em
+  margin-bottom: 0.5em
+  display: block

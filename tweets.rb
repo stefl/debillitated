@@ -5,7 +5,6 @@ require 'sinatra'
 require 'haml'
 
 get '/' do
-  content_type "text/css", :charset => "utf-8"
   response.headers['Cache-Control'] = "public, max-age=#{60*60}"
   @tweets = []
   @cols = []

@@ -1,0 +1,9 @@
+%li.tweet{:id=>"tweet_#{@index}"}
+  %span.profile_image
+    %img{:src=>"http://twitteravatar.appspot.com/users/avatar/#{@tweet[:from_user]}", :width=>48, :height=>48}
+  %span.from_user
+    %a{:href=>"http://twitter.com/#{@tweet[:from_user]}"}
+      = @tweet[:from_user]
+  %br
+  %span.text
+    = @tweet[:text]

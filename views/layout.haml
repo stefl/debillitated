@@ -2,14 +2,32 @@
   %head
     %title Debillitated
     %link{:href => "/css/screen.css", :media => 'screen', :rel => 'stylesheet', :type => 'text/css'}/
-    
-    
+    %script{:src=>"http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", :type=>'text/javascript'}/
+    :javascript
+      var loading = false;
+      function loadTweet() 
+      { 
+        $('div#loading').html('<img src="load.gif">');
+        $.get("/tweet/" + (parseInt($(".tweet:last").attr("id").split('_')[1]) + 1),     
+        function(data){
+            if (data != "") {
+              $(".tweet:last").after(data);            
+            }
+            $('div#loading').empty();
+   
+        });
+      };
+      $(window).scroll(function(){
+        if  ($(window).scrollTop() == $(document).height() - $(window).height()){
+           loadTweet();
+        }
+      });
   %body
     #page
       #content
         #section
           =yield
-          
+        #loading
         #footer
           %p
             Mashed by 

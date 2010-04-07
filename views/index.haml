@@ -11,7 +11,7 @@
   Members of Parliament
   
 %ul.mps
-  - @mps.each do |mp|
+  - Site.mps.each do |mp|
     %li.mp{:id=>mp.ivars["person_id"]}
       %span
         %img{:src=>mp.ivars["image"].to_s, :width=>20, :height=>20, :alt=>mp.ivars["full_name"], :title=>mp.ivars["full_name"]}
@@ -24,27 +24,27 @@
   
 %h3 Pro
 %ul#pro.mps
-  - @pro_mps.each do |mp|
+  - Site.pro_mps.each do |mp|
     %li.mp{:id=>mp.ivars["person_id"]}
       %span
         %img{:src=>mp.ivars["image"].to_s, :width=>20, :height=>20, :alt=>mp.ivars["full_name"], :title=>mp.ivars["full_name"]}
 
 %h3 Anti
 %ul#anti.mps
-  - @anti_mps.each do |mp|
+  - Site.anti_mps.each do |mp|
     %li.mp{:id=>mp.ivars["person_id"]}
       %span
         %img{:src=>mp.ivars["image"].to_s, :width=>20, :height=>20, :alt=>mp.ivars["full_name"], :title=>mp.ivars["full_name"]}
 %h3 Silent
 %ul#unknown.mps
-  - @unknown_mps.each do |mp|
+  - Site.unknown_mps.each do |mp|
     %li.mp{:id=>mp.ivars["person_id"]}
       %span
         %img{:src=>mp.ivars["image"].to_s, :width=>20, :height=>20, :alt=>mp.ivars["full_name"], :title=>mp.ivars["full_name"]}
 
 %h3 Late
 %ul#late.mps
-  - @late_mps.each do |mp|
+  - Site.late_mps.each do |mp|
     %li.mp{:id=>mp.ivars["person_id"]}
       %span
         %img{:src=>mp.ivars["image"].to_s, :width=>20, :height=>20, :alt=>mp.ivars["full_name"], :title=>mp.ivars["full_name"]}       
@@ -61,11 +61,11 @@
   Stuck around throughout
     
 %h2
-  %span= @usernames.size
+  %span= Site.number_of_twitterers
   Twitterers
   
 %h2
-  %span= @tweets.size
+  %span= Site.number_of_tweets
   Tweets
   
 %h2
@@ -77,9 +77,10 @@
   Here's what we thought
   
 %ul#tweets
-  - @x = 0
-  - @tweets.each do |tweet|
-    %li.tweet
+  - index = -1
+  - Site.tweets[0..10].each do |tweet|
+    - index = index + 1
+    %li.tweet{:id=>"tweet_#{index}"}
       %span.profile_image
         %img{:src=>"http://twitteravatar.appspot.com/users/avatar/#{tweet[:from_user]}", :width=>48, :height=>48}
       %span.from_user
@@ -88,8 +89,4 @@
       %br
       %span.text
         = tweet[:text]
-    - @x = @x +1
-        
-:javascript
-  $("img").lazyload();
   

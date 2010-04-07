@@ -1,0 +1,36 @@
+This is a Sinatra-based web application that was built to show the results of a single debate on the Digital Economy Bill, and could be used for similar purposes in the future.
+
+You are free to use, adapt, modify this code in any way you want.
+
+Requirements
+
+Rubygems:
+  sudo gem install ccsv sinata haml activesupport yaml twfy
+  
+The various parts. Whilst it is set up to run April 2010, MP details will change, and you might want to run this against a different hashtag:
+
+* TwapperKeeper.com can give you a download of a hashtag (in this case #debill). Save that file as tweets.csv, then run a find and replace to change double commas to comma space comma (Eg.gsub(',,',' ')) This is a #todo
+
+* TheyWorkForYou will give you a list of current MPs. Sign up for a TWFY API Key, edit all_current_mps.rb and run it with
+  ruby all_current_mps.rb
+  This will give you a file mps.yaml containing all of their info. 
+  
+* Edit bothered.yaml with the people who turned up
+
+* Run the webapp
+  rackup -p 8383
+  
+* Then view it in your browser:
+  http://localhost:8383
+  
+* To deploy to Heroku
+  Follow the instructions on Heroku to set up your account with them
+  
+  (where appname is the name of your app)
+  heroku create myappname
+  git add .
+  git commit -m"myapp first import"
+  git push heroku master
+  
+  Then view your app in a browser at:
+  http://myappname.heroku.com

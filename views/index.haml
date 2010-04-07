@@ -14,7 +14,8 @@
   - Site.mps.each do |mp|
     %li.mp{:id=>mp.ivars["person_id"]}
       %span
-        %img{:src=>mp.ivars["image"].to_s, :width=>20, :height=>20, :alt=>mp.ivars["full_name"], :title=>mp.ivars["full_name"]}
+        %a{:href=>"http://theyworkforyou.com/mp/?m=#{mp.ivars["member_id"]}"}
+          %img{:src=>mp.ivars["image"].to_s || "http://www.theyworkforyou.com/images/unknownperson.png", :width=>20, :height=>20, :alt=>mp.ivars["full_name"], :title=>mp.ivars["full_name"]}
   
 %h2
   %span 40
@@ -27,27 +28,31 @@
   - Site.pro_mps.each do |mp|
     %li.mp{:id=>mp.ivars["person_id"]}
       %span
-        %img{:src=>mp.ivars["image"].to_s, :width=>20, :height=>20, :alt=>mp.ivars["full_name"], :title=>mp.ivars["full_name"]}
+        %a{:href=>"http://theyworkforyou.com/mp/?m=#{mp.ivars["member_id"]}"}
+          %img{:src=>mp.ivars["image"].to_s, :width=>20, :height=>20, :alt=>mp.ivars["full_name"], :title=>mp.ivars["full_name"]}
 
 %h3 Anti
 %ul#anti.mps
   - Site.anti_mps.each do |mp|
     %li.mp{:id=>mp.ivars["person_id"]}
       %span
-        %img{:src=>mp.ivars["image"].to_s, :width=>20, :height=>20, :alt=>mp.ivars["full_name"], :title=>mp.ivars["full_name"]}
-%h3 Silent
+        %a{:href=>"http://theyworkforyou.com/mp/?m=#{mp.ivars["member_id"]}"}
+          %img{:src=>mp.ivars["image"].to_s, :width=>20, :height=>20, :alt=>mp.ivars["full_name"], :title=>mp.ivars["full_name"]}
+%h3 On the fence or not known
 %ul#unknown.mps
   - Site.unknown_mps.each do |mp|
     %li.mp{:id=>mp.ivars["person_id"]}
       %span
-        %img{:src=>mp.ivars["image"].to_s, :width=>20, :height=>20, :alt=>mp.ivars["full_name"], :title=>mp.ivars["full_name"]}
+        %a{:href=>"http://theyworkforyou.com/mp/?m=#{mp.ivars["member_id"]}"}
+          %img{:src=>mp.ivars["image"].to_s, :width=>20, :height=>20, :alt=>mp.ivars["full_name"], :title=>mp.ivars["full_name"]}
 
 %h3 Late
 %ul#late.mps
   - Site.late_mps.each do |mp|
     %li.mp{:id=>mp.ivars["person_id"]}
       %span
-        %img{:src=>mp.ivars["image"].to_s, :width=>20, :height=>20, :alt=>mp.ivars["full_name"], :title=>mp.ivars["full_name"]}       
+        %a{:href=>"http://theyworkforyou.com/mp/?m=#{mp.ivars["member_id"]}"}
+          %img{:src=>mp.ivars["image"].to_s, :width=>20, :height=>20, :alt=>mp.ivars["full_name"], :title=>mp.ivars["full_name"]}       
                  
 %h3 Unknown
 %ul#unknown.mps

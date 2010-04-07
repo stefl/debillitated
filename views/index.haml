@@ -9,13 +9,53 @@
 %h2
   %span 646
   Members of Parliament
-
+  
+%ul.mps
+  - @mps.each do |mp|
+    %li.mp{:id=>mp.ivars["person_id"]}
+      %span
+        %img{:src=>mp.ivars["image"].to_s, :width=>20, :height=>20, :alt=>mp.ivars["full_name"], :title=>mp.ivars["full_name"]}
+  
 %h2
-  %span 36
+  %span 40
   Bothered to turn up (thanks!)
   
-%img{:src=>"http://img.skitch.com/20100406-n6dja6ydfid33ta27g2fjakswn.png"}
+  %img{:src=>"http://img.skitch.com/20100406-n6dja6ydfid33ta27g2fjakswn.png"}
+  
+%h3 Pro
+%ul#pro.mps
+  - @pro_mps.each do |mp|
+    %li.mp{:id=>mp.ivars["person_id"]}
+      %span
+        %img{:src=>mp.ivars["image"].to_s, :width=>20, :height=>20, :alt=>mp.ivars["full_name"], :title=>mp.ivars["full_name"]}
 
+%h3 Anti
+%ul#anti.mps
+  - @anti_mps.each do |mp|
+    %li.mp{:id=>mp.ivars["person_id"]}
+      %span
+        %img{:src=>mp.ivars["image"].to_s, :width=>20, :height=>20, :alt=>mp.ivars["full_name"], :title=>mp.ivars["full_name"]}
+%h3 Silent
+%ul#unknown.mps
+  - @unknown_mps.each do |mp|
+    %li.mp{:id=>mp.ivars["person_id"]}
+      %span
+        %img{:src=>mp.ivars["image"].to_s, :width=>20, :height=>20, :alt=>mp.ivars["full_name"], :title=>mp.ivars["full_name"]}
+
+%h3 Late
+%ul#late.mps
+  - @late_mps.each do |mp|
+    %li.mp{:id=>mp.ivars["person_id"]}
+      %span
+        %img{:src=>mp.ivars["image"].to_s, :width=>20, :height=>20, :alt=>mp.ivars["full_name"], :title=>mp.ivars["full_name"]}       
+                 
+%h3 Unknown
+%ul#unknown.mps
+  - 13.times do
+    %li.mp
+      %span
+        %img{:src=>"http://www.theyworkforyou.com/images/unknownperson.png", :width=>20, :height=>20, :alt=>"Unknown", :title=>"Unknown"}       
+    
 %h2
   %span 10
   Stuck around throughout
@@ -37,6 +77,7 @@
   Here's what we thought
   
 %ul#tweets
+  - @x = 0
   - @tweets.each do |tweet|
     %li.tweet
       %span.profile_image
@@ -47,6 +88,8 @@
       %br
       %span.text
         = tweet[:text]
+    - @x = @x +1
         
-
+:javascript
+  $("img").lazyload();
   

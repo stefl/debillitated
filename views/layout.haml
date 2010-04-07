@@ -2,8 +2,25 @@
   %head
     %title Debillitated
     %link{:href => "/css/screen.css", :media => 'screen', :rel => 'stylesheet', :type => 'text/css'}/
+    
+    
   %body
     #page
       #content
         #section
           =yield
+          
+        #footer
+          %p
+            Mashed by 
+            %a{:href=>"http://stef.io"}
+              Stef
+            with free stuff from the internet:
+            %a{:href=>"http://heroku.com"}
+              Heroku
+            |
+            %a{:href=>"http://theyworkforyou.com"}
+              TheyWorkForYou
+            |
+            %a{:href=>"http://github.com/steflewandowski/debillitated"}
+              Source code

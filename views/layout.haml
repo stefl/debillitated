@@ -7,15 +7,18 @@
       var loading = false;
       function loadTweet() 
       { 
-        $('div#loading').html('<img src="load.gif">');
-        $.get("/tweet/" + (parseInt($(".tweet:last").attr("id").split('_')[1]) + 1),     
-        function(data){
-            if (data != "") {
-              $(".tweet:last").after(data);            
-            }
-            $('div#loading').empty();
-   
-        });
+        if(!loading) {
+          loading = true;
+          $('div#loading').html('<img src="load.gif">');
+          $.get("/tweet/" + (parseInt($(".tweet:last").attr("id").split('_')[1]) + 1),     
+          function(data){
+              if (data != "") {
+                $(".tweet:last").after(data);            
+              }
+              $('div#loading').empty();
+              loading = false;
+          });
+        }
       };
       $(window).scroll(function(){
         if  ($(window).scrollTop() == $(document).height() - $(window).height()){
